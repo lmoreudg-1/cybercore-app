@@ -35,7 +35,7 @@ COPY . /var/www/html
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 # Asignamos permisos correctos a las carpetas de almacenamiento de Laravel
-RUN chown -r www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Exponemos el puerto 80 estándar de Apache
 EXPOSE 80
