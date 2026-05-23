@@ -34,8 +34,9 @@ COPY . /var/www/html
 # Instalamos las dependencias de producción de Laravel
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-# Asignamos permisos correctos a las carpetas de almacenamiento de Laravel
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# Creamos la base de datos y asignamos permisos correctos a todo
+RUN touch /var/www/html/database/database.sqlite
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 
 # Exponemos el puerto 80 estándar de Apache
 EXPOSE 80
