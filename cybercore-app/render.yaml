@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: cybercore-chronicles
+    env: static
+    plan: free
+    buildCommand: composer install --no-dev --optimize-autoloader
+    startCommand: php artisan serve --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: APP_KEY
+        value: "base64:u91isesvj+jNqXncbtcm1k49VfQvy2xDR+PeIGbDrPvYp+7ebkx/A4F7GZc0v51O"
+      - key: DB_CONNECTION
+        value: sqlite
